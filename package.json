@@ -1,6 +1,6 @@
 {
   "name": "vectoredit",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "description": "Timeline: open-source vector, pixel and layout editor for the desktop and the browser",
   "main": "electron/main.cjs",
   "scripts": {

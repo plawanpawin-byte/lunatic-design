@@ -4,13 +4,13 @@ This takes about five minutes, once. After that, your AI agent can work on the d
 
 ## What you need
 
-- Timeline **installed** (the Setup file, `Timeline-Setup-0.4.2.exe`). The portable file cannot be connected to agents, because it runs from a temporary copy.
+- Timeline **installed** (the Setup file, `Timeline-Setup-0.5.0.exe`). The portable file cannot be connected to agents, because it runs from a temporary copy.
 - At least one of: **Claude Code**, **Codex** or **Antigravity**, already installed on this computer.
 - Windows PowerShell or Command Prompt (press the Start button, type `powershell`, press Enter).
 
 ## Step 1: Install Timeline
 
-1. Download `Timeline-Setup-0.4.2.exe` from the Releases page.
+1. Download `Timeline-Setup-0.5.0.exe` from the Releases page.
 2. Run it and finish the installer. It creates the folder **Documents\Timeline**, where your documents are saved by default.
 3. Open Timeline once from the Start menu, then close it.
 
