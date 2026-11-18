@@ -1,8 +1,10 @@
 import { getState, setState, THEME_KEY, type ThemeId } from './store';
 
 export const THEMES: { id: ThemeId; label: string }[] = [
-  { id: 'classic', label: 'Dark' },
-  { id: 'light', label: 'Light' },
+  { id: 'mac-dark', label: 'macOS Dark' },
+  { id: 'mac-light', label: 'macOS Light' },
+  { id: 'classic', label: 'Classic Dark' },
+  { id: 'light', label: 'Classic Light' },
 ];
 
 const apply = (id: ThemeId) => {

@@ -1,7 +1,7 @@
 {
   "name": "vectoredit",
   "version": "0.4.2",
-  "description": "lunaticDesign: open-source vector, pixel and layout editor for the desktop and the browser",
+  "description": "Timeline: open-source vector, pixel and layout editor for the desktop and the browser",
   "main": "electron/main.cjs",
   "scripts": {
     "test": "vitest run",
@@ -55,7 +55,7 @@
   },
   "build": {
     "appId": "com.plawanpawin.vectoredit",
-    "productName": "Lunatic Design",
+    "productName": "Timeline",
     "directories": {
       "output": "release",
       "buildResources": "build"
@@ -99,25 +99,25 @@
     "fileAssociations": [
       {
         "ext": "vedit",
-        "name": "lunaticDesign document",
+        "name": "Timeline document",
         "role": "Editor"
       }
     ],
-    "artifactName": "lunaticDesign-${version}-${os}-${arch}.${ext}",
+    "artifactName": "Timeline-${version}-${os}-${arch}.${ext}",
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
       "perMachine": false,
-      "artifactName": "lunaticDesign-Setup-${version}.${ext}",
-      "shortcutName": "Lunatic Design",
-      "uninstallDisplayName": "Lunatic Design",
+      "artifactName": "Timeline-Setup-${version}.${ext}",
+      "shortcutName": "Timeline",
+      "uninstallDisplayName": "Timeline",
       "include": "build/installer.nsh"
     },
     "portable": {
-      "artifactName": "lunaticDesign-Portable-${version}.${ext}"
+      "artifactName": "Timeline-Portable-${version}.${ext}"
     }
   },
-  "productName": "Lunatic Design"
+  "productName": "Timeline"
 }

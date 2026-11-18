@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="public/logo.png" alt="lunaticDesign logo" width="120" />
+<img src="public/logo.png" alt="Timeline logo" width="120" />
 
-# lunaticDesign
+# Timeline
 
 **A free, open-source vector, pixel and layout editor.**
 
@@ -26,12 +26,12 @@ Runs as a Windows app and in the browser. Nothing is uploaded: your work stays o
     <th>Code</th>
   </tr>
   <tr>
-    <td align="center"><img src="public/logo.png" width="32" alt="lunaticDesign logo" /><br/><b>lunaticDesign</b> · <b>you are here</b></td>
+    <td align="center"><img src="public/logo.png" width="32" alt="Timeline logo" /><br/><b>Timeline</b> · <b>you are here</b></td>
     <td>Vector illustration, photo editing and page layout</td>
     <td><a href="https://github.com/plawanpawin-byte/VectorEdit">GitHub</a></td>
   </tr>
   <tr>
-    <td align="center"><img src="public/photodesign-logo.webp" width="32" alt="PhotoDesign logo" /><br/><b>PhotoDesign</b></td>
+    <td align="center"><img src="public/daytime-logo.webp" width="32" alt="Daytime logo" /><br/><b>Daytime</b></td>
     <td>Photo editing with layers, adjustments, filters and brushes</td>
     <td><a href="https://github.com/plawanpawin-byte/PhotoDesign">GitHub</a></td>
   </tr>
@@ -54,7 +54,7 @@ Runs as a Windows app and in the browser. Nothing is uploaded: your work stays o
   </tr>
 </table>
 
-## Made in lunaticDesign
+## Made in Timeline
 
 <table>
   <tr>
@@ -76,19 +76,19 @@ EditCurser is the first of a growing family of free, open-source creative tools,
 
 | | App | What it&rsquo;s for | Code |
 | --- | --- | --- | --- |
-| <img src="public/logo.png" alt="" width="40" /> | **lunaticDesign** | Vector illustration, photo editing and page layout &middot; **you are here** | [GitHub](https://github.com/plawanpawin-byte/VectorEdit) |
+| <img src="public/logo.png" alt="" width="40" /> | **Timeline** | Vector illustration, photo editing and page layout &middot; **you are here** | [GitHub](https://github.com/plawanpawin-byte/VectorEdit) |
 
 ## Get it
 
 | How | Steps |
 | --- | --- |
-| **Windows app** | Open the repository's **Releases** page and download `lunaticDesign-Setup-<version>.exe` (installer) or `lunaticDesign-Portable-<version>.exe` (no install, just run it). The app is not code-signed, so Windows SmartScreen warns the first time: *More info → Run anyway*. |
+| **Windows app** | Open the repository's **Releases** page and download `Timeline-Setup-<version>.exe` (installer) or `Timeline-Portable-<version>.exe` (no install, just run it). The app is not code-signed, so Windows SmartScreen warns the first time: *More info → Run anyway*. |
 | **In the browser** | When the maintainer has published the web version, open the repository's GitHub Pages address. Nothing to install; your work stays in that browser. |
-| **Connect AI agents (MCP)** | After installing the Windows app, run this in PowerShell once, then restart Claude Code, Codex or Antigravity: `$exe = (Get-ChildItem "$env:LOCALAPPDATA\Programs" -Filter "Lunatic Design.exe" -Recurse -EA 0 \| Select-Object -First 1).FullName; & $exe --install-mcp`. Details in [docs/mcp-tutorial.md](docs/mcp-tutorial.md). |
+| **Connect AI agents (MCP)** | After installing the Windows app, run this in PowerShell once, then restart Claude Code, Codex or Antigravity: `$exe = (Get-ChildItem "$env:LOCALAPPDATA\Programs" -Filter "Timeline.exe" -Recurse -EA 0 \| Select-Object -First 1).FullName; & $exe --install-mcp`. Details in [docs/mcp-tutorial.md](docs/mcp-tutorial.md). |
 
 ## Your files and privacy
 
-lunaticDesign has **no accounts, no server and no sync**. Nothing you create is uploaded anywhere, and nobody else can see it.
+Timeline has **no accounts, no server and no sync**. Nothing you create is uploaded anywhere, and nobody else can see it.
 
 - Documents are `.vedit` files that you save where you choose; export to PNG, SVG, PDF or slices.
 - An automatic recovery copy of the page you are working on is kept **only on your own computer** (inside the browser profile or the desktop app's data folder). Every person who installs the app starts with an empty page and never sees anyone else's work.
@@ -96,21 +96,21 @@ lunaticDesign has **no accounts, no server and no sync**. Nothing you create is 
 
 ## Works offline
 
-Nothing is fetched from the internet. The app, its fonts and tools all come with the installer, so it works with no network at all. Documents, recent files and exports are kept on your computer. The first time the app starts it creates a folder named **Lunatic Design** in your Documents folder, and Open, Save and Export use it by default.
+Nothing is fetched from the internet. The app, its fonts and tools all come with the installer, so it works with no network at all. Documents, recent files and exports are kept on your computer. The first time the app starts it creates a folder named **Timeline** in your Documents folder, and Open, Save and Export use it by default.
 
 ## Working with AI agents (MCP)
 
-Lunatic Design can be driven by AI agents through the [Model Context Protocol](https://modelcontextprotocol.io). After one setup command, **Claude Code**, **Codex** and **Antigravity** can read the open document, add and change shapes and text, undo, look at the result as a picture, and save or open documents in the Lunatic Design folder.
+Timeline can be driven by AI agents through the [Model Context Protocol](https://modelcontextprotocol.io). After one setup command, **Claude Code**, **Codex** and **Antigravity** can read the open document, add and change shapes and text, undo, look at the result as a picture, and save or open documents in the Timeline folder.
 
 **Setup, once, in a terminal** (step by step with screenshots: [docs/mcp-tutorial.md](docs/mcp-tutorial.md)):
 
 ```powershell
-$exe = (Get-ChildItem "$env:LOCALAPPDATA\Programs" -Filter "Lunatic Design.exe" -Recurse -EA 0 | Select-Object -First 1).FullName; & $exe --install-mcp
+$exe = (Get-ChildItem "$env:LOCALAPPDATA\Programs" -Filter "Timeline.exe" -Recurse -EA 0 | Select-Object -First 1).FullName; & $exe --install-mcp
 ```
 
 It adds the server to each agent's configuration, merging with what is already there (other servers stay), and keeps a `.bak` copy of any file it changes. The result is written to `install-mcp.log` in the app's data folder. Then restart the agents. The app's **Window → Connect AI agents…** window shows the same command with a copy button.
 
-Keep Lunatic Design open while an agent works. The agent starts the app's MCP server (`Lunatic Design.exe --mcp`), which talks to the running window over a private connection on this computer. The connection needs a secret token, accepts only requests from this computer, and is removed when the app closes. Agents can only write inside the Lunatic Design folder, and they ask before replacing unsaved work.
+Keep Timeline open while an agent works. The agent starts the app's MCP server (`Timeline.exe --mcp`), which talks to the running window over a private connection on this computer. The connection needs a secret token, accepts only requests from this computer, and is removed when the app closes. Agents can only write inside the Timeline folder, and they ask before replacing unsaved work.
 
 | Tool | What it does |
 | --- | --- |
@@ -118,7 +118,7 @@ Keep Lunatic Design open while an agent works. The agent starts the app's MCP se
 | `new_document`, `add_shape`, `add_shapes`, `update_shape`, `delete_shapes`, `select_shapes` | Build and change the design |
 | `undo`, `redo` | Step back or forward |
 | `render_page`, `screenshot` | See the page or the whole window as a picture |
-| `list_documents`, `save_document`, `open_document` | Work with files in the Lunatic Design folder |
+| `list_documents`, `save_document`, `open_document` | Work with files in the Timeline folder |
 
 ## Themes
 
@@ -149,7 +149,7 @@ Also: PDF export (vector for plain shapes, image fallback), SVG import, colour s
 
 ## Limitations
 
-lunaticDesign is a young project and does **not** have everything Affinity has. See [docs/COVERAGE.md](docs/COVERAGE.md) for a feature-by-feature checklist. Missing today: AI features, filter layers and live masks for pixel layers, custom brush response curves, vector PDF for text and gradients, CMYK, free-form mesh-point gradients (a colour-grid mesh fill exists), and Affinity file-format import. Master pages repeat content but have no page numbering or spreads yet. Text styles are stored per browser. Scripts are not sandboxed, so only run code you trust.
+Timeline is a young project and does **not** have everything Affinity has. See [docs/COVERAGE.md](docs/COVERAGE.md) for a feature-by-feature checklist. Missing today: AI features, filter layers and live masks for pixel layers, custom brush response curves, vector PDF for text and gradients, CMYK, free-form mesh-point gradients (a colour-grid mesh fill exists), and Affinity file-format import. Master pages repeat content but have no page numbering or spreads yet. Text styles are stored per browser. Scripts are not sandboxed, so only run code you trust.
 
 ## Layout
 
@@ -170,4 +170,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). MIT licensed (see [LICENSE](LICENSE)).
 
 ## Disclaimer
 
-lunaticDesign is an independent open-source project. It is not affiliated with, endorsed by or derived from Affinity, Canva or Serif. All code, icons and assets are original.
+Timeline is an independent open-source project. It is not affiliated with, endorsed by or derived from Affinity, Canva or Serif. All code, icons and assets are original.

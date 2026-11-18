@@ -82,7 +82,7 @@ export async function callAgentApi(method: string, params: Params = {}): Promise
   switch (method) {
     case 'status': {
       return {
-        app: 'Lunatic Design',
+        app: 'Timeline',
         workspace: st.workspace,
         artboards: st.artboards.map((a) => ({ id: a.id, name: a.name, x: a.x, y: a.y, w: a.w, h: a.h })),
         activeArtboard: st.activeArtboard,
@@ -181,11 +181,11 @@ export async function callAgentApi(method: string, params: Params = {}): Promise
 
 declare global {
   interface Window {
-    __lunaticApi?: { call: typeof callAgentApi };
+    __timelineApi?: { call: typeof callAgentApi };
   }
 }
 
 /** Make the commands reachable by the desktop bridge. */
 export function installAgentApi() {
-  window.__lunaticApi = { call: callAgentApi };
+  window.__timelineApi = { call: callAgentApi };
 }

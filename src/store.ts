@@ -79,17 +79,23 @@ export interface State {
   pixel: { tolerance: number; contiguous: boolean; selectMode: 'replace' | 'add' | 'subtract' | 'intersect'; strength: number; fillMode: 'fill' | 'gradient' };
 }
 
-export type ThemeId = 'classic' | 'light';
-export const THEME_KEY = 'lunatic:theme';
+export type ThemeId = 'mac-dark' | 'mac-light' | 'classic' | 'light';
+export const THEME_KEY = 'timeline:theme';
 /** The saved theme of this user, or the default one. */
 function loadTheme(): ThemeId {
   try {
     const t = localStorage.getItem(THEME_KEY);
-    if (t === 'classic' || t === 'light') return t;
+    if (t === 'mac-dark' || t === 'mac-light' || t === 'classic' || t === 'light') return t;
   } catch {
     // storage unavailable: use the default
   }
-  return 'classic';
+  // first run: the macOS look, light or dark to match the system appearance
+  try {
+    if (window.matchMedia('(prefers-color-scheme: light)').matches) return 'mac-light';
+  } catch {
+    // no matchMedia (tests): dark
+  }
+  return 'mac-dark';
 }
 
 let counter = 0;

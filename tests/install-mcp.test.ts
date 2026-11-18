@@ -7,10 +7,10 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 const require = createRequire(import.meta.url);
 const { installMcp, mergeJson, mergeToml } = require('../electron/install-mcp.cjs');
 
-const entry = { command: 'C:\\Program Files\\Lunatic Design\\Lunatic Design.exe', args: ['--mcp'] };
+const entry = { command: 'C:\\Program Files\\Timeline\\Timeline.exe', args: ['--mcp'] };
 let home: string;
 beforeEach(() => {
-  home = fs.mkdtempSync(path.join(os.tmpdir(), 'lunatic-install-'));
+  home = fs.mkdtempSync(path.join(os.tmpdir(), 'timeline-install-'));
 });
 afterEach(() => fs.rmSync(home, { recursive: true, force: true }));
 
@@ -20,16 +20,16 @@ describe('mergeJson', () => {
     const out = JSON.parse(mergeJson(before, entry));
     expect(out.numStartups).toBe(4);
     expect(out.mcpServers.other).toEqual({ command: 'npx', args: ['x'] });
-    expect(out.mcpServers['lunatic-design']).toEqual(entry);
+    expect(out.mcpServers['timeline']).toEqual(entry);
   });
 
-  it('replaces an older lunatic-design entry instead of duplicating it', () => {
-    const out = JSON.parse(mergeJson(JSON.stringify({ mcpServers: { 'lunatic-design': { command: 'old', args: [] } } }), entry));
-    expect(out.mcpServers['lunatic-design']).toEqual(entry);
+  it('replaces an older timeline entry instead of duplicating it', () => {
+    const out = JSON.parse(mergeJson(JSON.stringify({ mcpServers: { 'timeline': { command: 'old', args: [] } } }), entry));
+    expect(out.mcpServers['timeline']).toEqual(entry);
   });
 
   it('creates a fresh file from nothing', () => {
-    expect(JSON.parse(mergeJson('', entry)).mcpServers['lunatic-design']).toEqual(entry);
+    expect(JSON.parse(mergeJson('', entry)).mcpServers['timeline']).toEqual(entry);
   });
 
   it('refuses to touch a file it cannot read', () => {
@@ -44,15 +44,15 @@ describe('mergeToml', () => {
     const out = mergeToml(before, entry);
     expect(out).toContain('model = "gpt-5"');
     expect(out).toContain('[mcp_servers.context7]');
-    expect(out).toContain('[mcp_servers.lunatic-design]');
-    expect(out).toContain('command = "C:\\\\Program Files\\\\Lunatic Design\\\\Lunatic Design.exe"');
+    expect(out).toContain('[mcp_servers.timeline]');
+    expect(out).toContain('command = "C:\\\\Program Files\\\\Timeline\\\\Timeline.exe"');
     expect(out).toContain('args = ["--mcp"]');
   });
 
   it('replaces only its own table when run again', () => {
     const once = mergeToml('[mcp_servers.other]\ncommand = "a"\n', entry);
     const twice = mergeToml(once, { command: '/new/app', args: ['--mcp'] });
-    expect(twice.match(/\[mcp_servers\.lunatic-design\]/g)).toHaveLength(1);
+    expect(twice.match(/\[mcp_servers\.timeline\]/g)).toHaveLength(1);
     expect(twice).toContain('[mcp_servers.other]');
     expect(twice).toContain('command = "/new/app"');
     expect(twice).not.toContain('Program Files');
@@ -66,8 +66,8 @@ describe('installMcp', () => {
     const by = (agent: string) => report.filter((r: { agent: string }) => r.agent === agent);
     expect(by('Claude Code')[0].status).toBe('written');
     expect(by('Codex')[0].status).toBe('written');
-    expect(JSON.parse(fs.readFileSync(path.join(home, '.claude.json'), 'utf8')).mcpServers['lunatic-design']).toEqual(entry);
-    expect(fs.readFileSync(path.join(home, '.codex', 'config.toml'), 'utf8')).toContain('[mcp_servers.lunatic-design]');
+    expect(JSON.parse(fs.readFileSync(path.join(home, '.claude.json'), 'utf8')).mcpServers['timeline']).toEqual(entry);
+    expect(fs.readFileSync(path.join(home, '.codex', 'config.toml'), 'utf8')).toContain('[mcp_servers.timeline]');
     // Antigravity has no folder here, so nothing is created for it
     expect(by('Antigravity').every((r: { status: string }) => r.status === 'skipped')).toBe(true);
     expect(fs.existsSync(path.join(home, '.gemini'))).toBe(false);
@@ -76,7 +76,7 @@ describe('installMcp', () => {
   it('writes Antigravity under either known folder when it is present', async () => {
     fs.mkdirSync(path.join(home, '.gemini', 'config'), { recursive: true });
     await installMcp({ home, entry });
-    expect(JSON.parse(fs.readFileSync(path.join(home, '.gemini', 'config', 'mcp_config.json'), 'utf8')).mcpServers['lunatic-design']).toEqual(entry);
+    expect(JSON.parse(fs.readFileSync(path.join(home, '.gemini', 'config', 'mcp_config.json'), 'utf8')).mcpServers['timeline']).toEqual(entry);
   });
 
   it('keeps a backup of an existing file before changing it', async () => {
@@ -99,19 +99,19 @@ describe('server entry with env', () => {
 
   it('writes the env block for JSON agents', () => {
     const out = JSON.parse(mergeJson('', withEnv));
-    expect(out.mcpServers['lunatic-design'].env).toEqual({ ELECTRON_RUN_AS_NODE: '1' });
+    expect(out.mcpServers['timeline'].env).toEqual({ ELECTRON_RUN_AS_NODE: '1' });
   });
 
   it('writes the env table for Codex and replaces it on a second run', () => {
     const once = mergeToml('', withEnv);
-    expect(once).toContain('[mcp_servers.lunatic-design.env]\nELECTRON_RUN_AS_NODE = "1"');
+    expect(once).toContain('[mcp_servers.timeline.env]\nELECTRON_RUN_AS_NODE = "1"');
     const twice = mergeToml(once + '\n[model]\nname = "x"\n', withEnv);
-    expect(twice.match(/\[mcp_servers\.lunatic-design\.env\]/g)).toHaveLength(1);
+    expect(twice.match(/\[mcp_servers\.timeline\.env\]/g)).toHaveLength(1);
     expect(twice).toContain('[model]');
   });
 
   it('leaves env out when the entry has none', () => {
-    expect(JSON.parse(mergeJson('', entry)).mcpServers['lunatic-design']).not.toHaveProperty('env');
+    expect(JSON.parse(mergeJson('', entry)).mcpServers['timeline']).not.toHaveProperty('env');
     expect(mergeToml('', entry)).not.toContain('.env]');
   });
 });

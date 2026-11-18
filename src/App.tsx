@@ -366,7 +366,7 @@ function useDesktopBridge() {
   }, []);
   useEffect(() => {
     const name = filePath ? filePath.split(/[\\/]/).pop() : 'Untitled';
-    window.desktop?.setTitle(`${name} - lunaticDesign`);
+    window.desktop?.setTitle(`${name} - Timeline`);
   }, [filePath]);
 }
 

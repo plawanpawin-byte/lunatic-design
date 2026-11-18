@@ -1,14 +1,14 @@
 'use strict';
-// MCP (Model Context Protocol) server for Lunatic Design. It speaks JSON-RPC over stdin/stdout and forwards every tool
+// MCP (Model Context Protocol) server for Timeline. It speaks JSON-RPC over stdin/stdout and forwards every tool
 // call to the running desktop app through a local bridge. No dependencies, so the app's own executable can run it:
-//   "Lunatic Design.exe" --mcp
+//   "Timeline.exe" --mcp
 // or, from a source checkout:  node electron/mcp-server.cjs
 const fs = require('node:fs');
 const http = require('node:http');
 const os = require('node:os');
 const path = require('node:path');
 
-const FOLDER = 'Lunatic Design';
+const FOLDER = 'Timeline';
 const DEFAULT_PROTOCOL = '2025-06-18';
 
 function version() {
@@ -21,7 +21,7 @@ function version() {
 
 /** Where the running app publishes its port and token (the same folder Electron uses for the app's data). */
 function discoveryFile() {
-  if (process.env.LUNATIC_MCP_FILE) return process.env.LUNATIC_MCP_FILE;
+  if (process.env.TIMELINE_MCP_FILE) return process.env.TIMELINE_MCP_FILE;
   const home = os.homedir();
   const base =
     process.platform === 'win32'
@@ -32,7 +32,7 @@ function discoveryFile() {
   return path.join(base, FOLDER, 'mcp.json');
 }
 
-const NOT_RUNNING = 'Lunatic Design is not running. Open the app, then try again.';
+const NOT_RUNNING = 'Timeline is not running. Open the app, then try again.';
 
 function readBridge(file = discoveryFile()) {
   let info;
@@ -126,16 +126,16 @@ const TOOLS = [
     image: true,
   },
   { name: 'screenshot', description: 'Capture the whole app window as a PNG, including panels and tools.', inputSchema: { type: 'object', properties: {} }, method: 'screenshot', image: true },
-  { name: 'list_documents', description: 'List the .vedit documents in Documents/Lunatic Design.', inputSchema: { type: 'object', properties: {} }, method: 'list_documents' },
+  { name: 'list_documents', description: 'List the .vedit documents in Documents/Timeline.', inputSchema: { type: 'object', properties: {} }, method: 'list_documents' },
   {
     name: 'save_document',
-    description: 'Save the open document as name.vedit inside Documents/Lunatic Design (the folder is the only place agents can write).',
+    description: 'Save the open document as name.vedit inside Documents/Timeline (the folder is the only place agents can write).',
     inputSchema: { type: 'object', properties: { name: str('File name without folders, for example "poster"') }, required: ['name'] },
     method: 'save_document',
   },
   {
     name: 'open_document',
-    description: 'Open name.vedit from Documents/Lunatic Design, replacing the open document. Refuses when the open document has unsaved changes: ask the user first, then repeat with discardUnsaved: true.',
+    description: 'Open name.vedit from Documents/Timeline, replacing the open document. Refuses when the open document has unsaved changes: ask the user first, then repeat with discardUnsaved: true.',
     inputSchema: { type: 'object', properties: { name: str('File name without folders'), discardUnsaved: { type: 'boolean', description: 'Only true after the user agreed to lose unsaved changes' } }, required: ['name'] },
     method: 'open_document',
   },
@@ -155,7 +155,7 @@ function createHandler(call = callBridge) {
     if (method.startsWith('notifications/')) return null;
     switch (method) {
       case 'initialize':
-        return ok(id, { protocolVersion: (params && params.protocolVersion) || DEFAULT_PROTOCOL, capabilities: { tools: {} }, serverInfo: { name: 'lunatic-design', version: version() }, instructions: 'Edits the document open in Lunatic Design. Call get_status first; use render_page to look at the result.' });
+        return ok(id, { protocolVersion: (params && params.protocolVersion) || DEFAULT_PROTOCOL, capabilities: { tools: {} }, serverInfo: { name: 'timeline', version: version() }, instructions: 'Edits the document open in Timeline. Call get_status first; use render_page to look at the result.' });
       case 'ping':
         return ok(id, {});
       case 'tools/list':

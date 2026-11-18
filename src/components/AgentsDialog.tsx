@@ -50,7 +50,7 @@ export function AgentsDialog() {
         </header>
         <div className="agents-body">
           <p>
-            Connects <b>Claude Code</b>, <b>Codex</b> and <b>Antigravity</b> to Lunatic Design in one step. They can then work on the document you have open.
+            Connects <b>Claude Code</b>, <b>Codex</b> and <b>Antigravity</b> to Timeline in one step. They can then work on the document you have open.
             Everything stays on this computer.
           </p>
           {!window.desktop && <p className="newdoc-error">Connecting agents needs the desktop app. It is not available in the browser.</p>}

@@ -4,7 +4,7 @@
 */
 
 /* ---------- Light ---------- */
-:root[data-theme='light'] {
+:root:is([data-theme='light'], [data-theme='mac-light']) {
   --ui-0: #ffffff;
   --ui-1: #dfe3e8;
   --ui-2: #f3f5f7;
@@ -21,64 +21,228 @@
   --sel-soft: rgba(37, 99, 235, 0.16);
   color-scheme: light;
 }
-[data-theme='light'] body { background: var(--ui-1); }
-[data-theme='light'] .menubar { background: #f3f5f7; border-bottom-color: #c3cad2; }
-[data-theme='light'] .topbar { background: #e9ecf0; }
-[data-theme='light'] .modes { background: #d9dee4; }
-[data-theme='light'] .modes button { color: #1b2127; }
-[data-theme='light'] .contextbar { background: #e6e9ed; }
-[data-theme='light'] .doc-tabs,
-[data-theme='light'] .ruler,
-[data-theme='light'] .corner { background: #e6e9ed; }
-[data-theme='light'] .dock,
-[data-theme='light'] .leftdock { background: #dfe3e8; border-left-color: #c3cad2; }
-[data-theme='light'] .dock-group,
-[data-theme='light'] .layer-foot,
-[data-theme='light'] .dock-tabs { background: #e6e9ed; }
-[data-theme='light'] .dock-tabs { border-bottom-color: #c3cad2; }
-[data-theme='light'] .dock-tabs button.on { background: #f3f5f7; color: #1b2127; }
-[data-theme='light'] .layer-list { background: #f3f5f7; }
-[data-theme='light'] .layer-foot { border-top-color: #c3cad2; }
-[data-theme='light'] .flyout,
-[data-theme='light'] .pop-panel { background: #ffffff; border-color: #c3cad2; }
-[data-theme='light'] .tool.on { background: #dbe7fb; color: #1d4ed8; box-shadow: inset 0 0 0 1px #2563eb; }
-[data-theme='light'] .ibtn.on,
-[data-theme='light'] .segpick button.on,
-[data-theme='light'] .flyout button.on,
-[data-theme='light'] .tgl.on,
-[data-theme='light'] .preset-grid button.on { background: #dbe7fb; border-color: #a9c4f2; color: #1d4ed8; }
-[data-theme='light'] .preset-list > button.on,
-[data-theme='light'] .newdoc-presets button.on,
-[data-theme='light'] .newdoc-orient button.on { background: #dbe7fb; }
-[data-theme='light'] .float-tools button.on { background: #dbe7fb; box-shadow: inset 0 0 0 1px #2563eb; }
-[data-theme='light'] .float-grip,
-[data-theme='light'] .float-tools button:hover { background: #d3d8de; }
-[data-theme='light'] *::-webkit-scrollbar-thumb { background: #b7bec7; }
-[data-theme='light'] .modal { background: #ffffff; }
-[data-theme='light'] .modal-back { background: rgba(20, 30, 40, 0.35); }
-[data-theme='light'] .agents-body pre { background: #eef1f4; }
-[data-theme='light'] .startpage { background: #eef1f4; color: #1b2127; }
-[data-theme='light'] .start-tag { color: #46505a; }
-[data-theme='light'] .start-hint { color: #66707a; }
-[data-theme='light'] .start-actions button { border-color: #aeb6bf; color: #1b2127; }
-[data-theme='light'] .start-actions .start-primary { background: #1d4ed8; border-color: #1d4ed8; color: #fff; }
-[data-theme='light'] .start-recent h2 { color: #1b2127; }
-[data-theme='light'] .start-recent li .start-open { color: #1b2127; }
-[data-theme='light'] .start-recent li:hover { background: #e0e5ea; }
-[data-theme='light'] .start-dir { color: #77818b; }
-[data-theme='light'] .start-recent li .start-remove { color: #77818b; }
-[data-theme='light'] .start-recent li .start-remove:hover { background: #cdd4db; color: #1b2127; }
+:is([data-theme='light'], [data-theme='mac-light']) body { background: var(--ui-1); }
+:is([data-theme='light'], [data-theme='mac-light']) .menubar { background: #f3f5f7; border-bottom-color: #c3cad2; }
+:is([data-theme='light'], [data-theme='mac-light']) .topbar { background: #e9ecf0; }
+:is([data-theme='light'], [data-theme='mac-light']) .modes { background: #d9dee4; }
+:is([data-theme='light'], [data-theme='mac-light']) .modes button { color: #1b2127; }
+:is([data-theme='light'], [data-theme='mac-light']) .contextbar { background: #e6e9ed; }
+:is([data-theme='light'], [data-theme='mac-light']) .doc-tabs,
+:is([data-theme='light'], [data-theme='mac-light']) .ruler,
+:is([data-theme='light'], [data-theme='mac-light']) .corner { background: #e6e9ed; }
+:is([data-theme='light'], [data-theme='mac-light']) .dock,
+:is([data-theme='light'], [data-theme='mac-light']) .leftdock { background: #dfe3e8; border-left-color: #c3cad2; }
+:is([data-theme='light'], [data-theme='mac-light']) .dock-group,
+:is([data-theme='light'], [data-theme='mac-light']) .layer-foot,
+:is([data-theme='light'], [data-theme='mac-light']) .dock-tabs { background: #e6e9ed; }
+:is([data-theme='light'], [data-theme='mac-light']) .dock-tabs { border-bottom-color: #c3cad2; }
+:is([data-theme='light'], [data-theme='mac-light']) .dock-tabs button.on { background: #f3f5f7; color: #1b2127; }
+:is([data-theme='light'], [data-theme='mac-light']) .layer-list { background: #f3f5f7; }
+:is([data-theme='light'], [data-theme='mac-light']) .layer-foot { border-top-color: #c3cad2; }
+:is([data-theme='light'], [data-theme='mac-light']) .flyout,
+:is([data-theme='light'], [data-theme='mac-light']) .pop-panel { background: #ffffff; border-color: #c3cad2; }
+:is([data-theme='light'], [data-theme='mac-light']) .tool.on { background: #dbe7fb; color: #1d4ed8; box-shadow: inset 0 0 0 1px #2563eb; }
+:is([data-theme='light'], [data-theme='mac-light']) .ibtn.on,
+:is([data-theme='light'], [data-theme='mac-light']) .segpick button.on,
+:is([data-theme='light'], [data-theme='mac-light']) .flyout button.on,
+:is([data-theme='light'], [data-theme='mac-light']) .tgl.on,
+:is([data-theme='light'], [data-theme='mac-light']) .preset-grid button.on { background: #dbe7fb; border-color: #a9c4f2; color: #1d4ed8; }
+:is([data-theme='light'], [data-theme='mac-light']) .preset-list > button.on,
+:is([data-theme='light'], [data-theme='mac-light']) .newdoc-presets button.on,
+:is([data-theme='light'], [data-theme='mac-light']) .newdoc-orient button.on { background: #dbe7fb; }
+:is([data-theme='light'], [data-theme='mac-light']) .float-tools button.on { background: #dbe7fb; box-shadow: inset 0 0 0 1px #2563eb; }
+:is([data-theme='light'], [data-theme='mac-light']) .float-grip,
+:is([data-theme='light'], [data-theme='mac-light']) .float-tools button:hover { background: #d3d8de; }
+:is([data-theme='light'], [data-theme='mac-light']) *::-webkit-scrollbar-thumb { background: #b7bec7; }
+:is([data-theme='light'], [data-theme='mac-light']) .modal { background: #ffffff; }
+:is([data-theme='light'], [data-theme='mac-light']) .modal-back { background: rgba(20, 30, 40, 0.35); }
+:is([data-theme='light'], [data-theme='mac-light']) .agents-body pre { background: #eef1f4; }
+:is([data-theme='light'], [data-theme='mac-light']) .startpage { background: #eef1f4; color: #1b2127; }
+:is([data-theme='light'], [data-theme='mac-light']) .start-tag { color: #46505a; }
+:is([data-theme='light'], [data-theme='mac-light']) .start-hint { color: #66707a; }
+:is([data-theme='light'], [data-theme='mac-light']) .start-actions button { border-color: #aeb6bf; color: #1b2127; }
+:is([data-theme='light'], [data-theme='mac-light']) .start-actions .start-primary { background: #1d4ed8; border-color: #1d4ed8; color: #fff; }
+:is([data-theme='light'], [data-theme='mac-light']) .start-recent h2 { color: #1b2127; }
+:is([data-theme='light'], [data-theme='mac-light']) .start-recent li .start-open { color: #1b2127; }
+:is([data-theme='light'], [data-theme='mac-light']) .start-recent li:hover { background: #e0e5ea; }
+:is([data-theme='light'], [data-theme='mac-light']) .start-dir { color: #77818b; }
+:is([data-theme='light'], [data-theme='mac-light']) .start-recent li .start-remove { color: #77818b; }
+:is([data-theme='light'], [data-theme='mac-light']) .start-recent li .start-remove:hover { background: #cdd4db; color: #1b2127; }
 
 /* Light: icons and tabs that the base stylesheet colours for a dark background */
-[data-theme='light'] .tool,
-[data-theme='light'] .ibtn,
-[data-theme='light'] .float-tools button { color: #36404a; }
-[data-theme='light'] .tool:hover,
-[data-theme='light'] .float-tools button:hover { background: #d3d8de; color: #0f1419; }
-[data-theme='light'] .ibtn:not(:disabled):hover,
-[data-theme='light'] .export-main:hover { color: #0f1419; }
-[data-theme='light'] .contextbar .ibtn:hover .txtbtn { background: #cfd5dc; }
-[data-theme='light'] .dock-tabs button { color: #55606b; }
-[data-theme='light'] .dock-tabs button.on { color: #0f1419; }
-[data-theme='light'] .tool.on { color: #1d4ed8; }
-[data-theme='light'] .layer .thumb { background-color: #fff; }
+:is([data-theme='light'], [data-theme='mac-light']) .tool,
+:is([data-theme='light'], [data-theme='mac-light']) .ibtn,
+:is([data-theme='light'], [data-theme='mac-light']) .float-tools button { color: #36404a; }
+:is([data-theme='light'], [data-theme='mac-light']) .tool:hover,
+:is([data-theme='light'], [data-theme='mac-light']) .float-tools button:hover { background: #d3d8de; color: #0f1419; }
+:is([data-theme='light'], [data-theme='mac-light']) .ibtn:not(:disabled):hover,
+:is([data-theme='light'], [data-theme='mac-light']) .export-main:hover { color: #0f1419; }
+:is([data-theme='light'], [data-theme='mac-light']) .contextbar .ibtn:hover .txtbtn { background: #cfd5dc; }
+:is([data-theme='light'], [data-theme='mac-light']) .dock-tabs button { color: #55606b; }
+:is([data-theme='light'], [data-theme='mac-light']) .dock-tabs button.on { color: #0f1419; }
+:is([data-theme='light'], [data-theme='mac-light']) .tool.on { color: #1d4ed8; }
+:is([data-theme='light'], [data-theme='mac-light']) .layer .thumb { background-color: #fff; }
+
+/* ---------- macOS (Dark and Light) ----------
+   A look modelled on macOS apps: the system font, hairline separators, a unified toolbar, segmented controls,
+   translucent menus and dialogs, an accent-blue selection, and rounded overlay scrollbars. */
+:root[data-theme^='mac'] {
+  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', 'Segoe UI Variable Text', 'Segoe UI', 'Leelawadee UI', 'Noto Sans Thai', Roboto, Arial, sans-serif;
+  --mono: 'SF Mono', ui-monospace, Menlo, 'Cascadia Code', Consolas, monospace;
+}
+:root[data-theme='mac-dark'] {
+  --ui-0: #1c1c1e;
+  --ui-1: #1e1e1e;
+  --ui-2: #2a2a2c;
+  --ui-3: #323234;
+  --ui-4: #48484a;
+  --line: #0f0f10;
+  --line-soft: rgba(255, 255, 255, 0.08);
+  --text: #f2f2f7;
+  --text-dim: #c7c7cc;
+  --text-faint: #8e8e93;
+  --brand: #0a84ff;
+  --brand-hi: #64b0ff;
+  --sel: #0a84ff;
+  --sel-soft: rgba(10, 132, 255, 0.22);
+  --mac-bar: #2c2c2e;
+  --mac-side: #252527;
+  --mac-well: #1c1c1e;
+  --mac-sep: rgba(0, 0, 0, 0.55);
+  --mac-hair: rgba(255, 255, 255, 0.07);
+  --mac-seg: rgba(118, 118, 128, 0.24);
+  --mac-seg-on: #636366;
+  --mac-menu: rgba(40, 40, 42, 0.86);
+  --mac-hover: rgba(255, 255, 255, 0.08);
+  --mac-thumb: rgba(255, 255, 255, 0.28);
+  color-scheme: dark;
+}
+:root[data-theme='mac-light'] {
+  --ui-0: #ffffff;
+  --ui-1: #e4e4e7;
+  --ui-2: #f5f5f7;
+  --ui-3: #ececee;
+  --ui-4: #d6d6da;
+  --line: #c9c9ce;
+  --line-soft: rgba(0, 0, 0, 0.08);
+  --text: #1d1d1f;
+  --text-dim: #48484a;
+  --text-faint: #8e8e93;
+  --brand: #007aff;
+  --brand-hi: #3395ff;
+  --sel: #007aff;
+  --sel-soft: rgba(0, 122, 255, 0.16);
+  --mac-bar: #f6f6f6;
+  --mac-side: #ececee;
+  --mac-well: #ffffff;
+  --mac-sep: #d1d1d6;
+  --mac-hair: rgba(0, 0, 0, 0.06);
+  --mac-seg: rgba(118, 118, 128, 0.12);
+  --mac-seg-on: #ffffff;
+  --mac-menu: rgba(246, 246, 246, 0.88);
+  --mac-hover: rgba(0, 0, 0, 0.06);
+  --mac-thumb: rgba(0, 0, 0, 0.3);
+  color-scheme: light;
+}
+[data-theme^='mac'] body { background: var(--ui-1); font-size: 12.5px; letter-spacing: -0.003em; }
+
+/* menu bar and unified toolbar */
+[data-theme^='mac'] .menubar { background: var(--mac-bar); border-bottom: 1px solid var(--mac-hair); }
+[data-theme^='mac'] .menubar-item > button { font-weight: 500; border-radius: 5px; }
+[data-theme^='mac'] .menubar-item > button:hover,
+[data-theme^='mac'] .menubar-item > button.on { background: var(--mac-hover); }
+[data-theme^='mac'] .topbar { background: var(--mac-bar); border-bottom: 1px solid var(--mac-sep); }
+[data-theme^='mac'] .contextbar { background: var(--mac-bar); border-bottom: 1px solid var(--mac-sep); }
+
+/* segmented controls */
+[data-theme^='mac'] .modes,
+[data-theme^='mac'] .seg { background: var(--mac-seg); border-radius: 8px; padding: 2px; }
+[data-theme^='mac'] .modes button { height: 24px; border-radius: 6px; color: var(--text); font-weight: 500; }
+[data-theme^='mac'] .modes button.on { background: var(--mac-seg-on); color: var(--text); font-weight: 600; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 0 0 0.5px rgba(0, 0, 0, 0.12); }
+[data-theme^='mac'] .segpick { border: 0; background: var(--mac-seg); border-radius: 7px; padding: 2px; gap: 2px; }
+[data-theme^='mac'] .segpick button { border-radius: 5px; }
+[data-theme^='mac'] .segpick button.on { background: var(--mac-seg-on); color: var(--text); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); }
+[data-theme^='mac'] .export { background: var(--mac-seg); }
+
+/* sidebar-style tool strip and panels */
+[data-theme^='mac'] .toolbar { background: var(--mac-side); border-right: 1px solid var(--mac-sep); }
+[data-theme^='mac'] .tool { border-radius: 7px; color: var(--text-dim); }
+[data-theme^='mac'] .tool:hover { background: var(--mac-hover); color: var(--text); }
+[data-theme^='mac'] .tool.on { background: var(--sel); color: #fff; box-shadow: none; }
+[data-theme^='mac'] .tsep { border-top-color: var(--mac-hair); }
+[data-theme^='mac'] .dock,
+[data-theme^='mac'] .leftdock { background: var(--mac-side); gap: 0; border-left: 1px solid var(--mac-sep); }
+[data-theme^='mac'] .leftdock { border-left: 0; border-right: 1px solid var(--mac-sep); }
+[data-theme^='mac'] .dock-group { background: var(--mac-side); border-bottom: 1px solid var(--mac-sep); }
+[data-theme^='mac'] .dock-tabs { background: var(--mac-side); border-bottom: 1px solid var(--mac-hair); height: 30px; padding: 0 6px; gap: 2px; }
+[data-theme^='mac'] .dock-tabs button { color: var(--text-dim); font-weight: 500; border-radius: 6px; padding: 3px 8px; }
+[data-theme^='mac'] .dock-tabs button.on { background: var(--mac-seg); color: var(--text); }
+[data-theme^='mac'] .section { border-bottom-color: var(--mac-hair); }
+[data-theme^='mac'] .layer-list { background: var(--mac-well); }
+[data-theme^='mac'] .layer { border-radius: 6px; }
+[data-theme^='mac'] .layer:hover { background: var(--mac-hover); }
+[data-theme^='mac'] .layer.sel { background: var(--sel); color: #fff; box-shadow: none; }
+[data-theme^='mac'] .layer-foot { background: var(--mac-side); border-top-color: var(--mac-hair); }
+[data-theme^='mac'] .doc-tabs,
+[data-theme^='mac'] .ruler,
+[data-theme^='mac'] .corner { background: var(--mac-bar); }
+[data-theme^='mac'] .doc-tabs { border-bottom-color: var(--mac-sep); }
+[data-theme^='mac'] .doc-tab { background: var(--mac-seg); border-right: 0; margin: 3px 0 3px 4px; height: 21px; border-radius: 6px; }
+[data-theme^='mac'] .statusbar { background: var(--mac-bar); border-top: 1px solid var(--mac-sep); color: var(--text-faint); }
+
+/* controls */
+[data-theme^='mac'] .ibtn:not(:disabled):hover { background: var(--mac-hover); }
+[data-theme^='mac'] .ibtn.on,
+[data-theme^='mac'] .tgl.on,
+[data-theme^='mac'] .flyout button.on,
+[data-theme^='mac'] .preset-grid button.on { background: var(--sel-soft); color: var(--sel); border-color: transparent; }
+[data-theme^='mac'] .txtbtn { background: var(--mac-seg); border-radius: 6px; }
+[data-theme^='mac'] .contextbar .ibtn:hover .txtbtn { background: var(--ui-4); }
+[data-theme^='mac'] input:not([type='checkbox']):not([type='radio']):not([type='range']),
+[data-theme^='mac'] select,
+[data-theme^='mac'] textarea { background: var(--ui-0); border: 1px solid var(--line-soft); border-radius: 6px; box-shadow: inset 0 0.5px 1px rgba(0, 0, 0, 0.12); }
+[data-theme^='mac'] input:focus,
+[data-theme^='mac'] select:focus,
+[data-theme^='mac'] textarea:focus { outline: none; box-shadow: 0 0 0 3px var(--sel-soft); border-color: var(--sel); }
+[data-theme^='mac'] input[type='range'] { background: var(--mac-seg); height: 4px; border-radius: 2px; }
+[data-theme^='mac'] input[type='range']::-webkit-slider-thumb { width: 14px; height: 14px; background: #fff; border: 0; box-shadow: 0 0.5px 2px rgba(0, 0, 0, 0.45), 0 0 0 0.5px rgba(0, 0, 0, 0.15); }
+[data-theme^='mac'] .btn { border-radius: 6px; font-weight: 500; }
+[data-theme^='mac'] .btn.primary { background: var(--sel); color: #fff; }
+[data-theme^='mac'] .btn.primary:hover { background: var(--brand-hi); }
+[data-theme^='mac'] .btn.ghost { background: var(--mac-seg); border-color: transparent; }
+
+/* translucent menus, popovers and sheets */
+[data-theme^='mac'] .pop-panel,
+[data-theme^='mac'] .flyout { background: var(--mac-menu); -webkit-backdrop-filter: blur(24px) saturate(1.6); backdrop-filter: blur(24px) saturate(1.6); border: 0.5px solid var(--mac-sep); border-radius: 10px; box-shadow: 0 12px 32px rgba(0, 0, 0, 0.32), 0 0 0 0.5px rgba(0, 0, 0, 0.2); padding: 5px; }
+[data-theme^='mac'] .menu-list button { height: 22px; border-radius: 5px; }
+[data-theme^='mac'] .menu-list button:hover { background: var(--sel); color: #fff; }
+[data-theme^='mac'] .menu-head { text-transform: none; letter-spacing: 0; font-size: 11px; font-weight: 600; }
+[data-theme^='mac'] .modal-back { background: rgba(0, 0, 0, 0.28); }
+[data-theme^='mac'] .modal { background: var(--mac-menu); -webkit-backdrop-filter: blur(30px) saturate(1.6); backdrop-filter: blur(30px) saturate(1.6); border: 0.5px solid var(--mac-sep); border-radius: 12px; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4); }
+
+/* overlay-style scrollbars */
+[data-theme^='mac'] *::-webkit-scrollbar { width: 10px; height: 10px; }
+[data-theme^='mac'] *::-webkit-scrollbar-thumb { background: var(--mac-thumb); border: 3px solid transparent; border-radius: 10px; background-clip: content-box; }
+[data-theme^='mac'] *::-webkit-scrollbar-thumb:hover { background: var(--text-faint); background-clip: content-box; }
+
+/* start page */
+[data-theme='mac-light'] .startpage { background: #f5f5f7; color: #1d1d1f; }
+[data-theme='mac-light'] .start-tag,
+[data-theme='mac-light'] .start-hint,
+[data-theme='mac-light'] .start-dir { color: #6e6e73; }
+[data-theme='mac-light'] .start-actions button { border-color: #d1d1d6; color: #1d1d1f; background: #fff; }
+[data-theme='mac-light'] .start-recent h2,
+[data-theme='mac-light'] .start-recent li .start-open { color: #1d1d1f; }
+[data-theme='mac-light'] .start-recent li:hover { background: rgba(0, 0, 0, 0.05); }
+[data-theme^='mac'] .start-actions button { border-radius: 8px; }
+[data-theme^='mac'] .start-actions .start-primary { background: var(--sel); border-color: var(--sel); color: #fff; }
+
+/* mac-light: icons the base stylesheet colours for a dark background */
+[data-theme='mac-light'] .tool,
+[data-theme='mac-light'] .ibtn,
+[data-theme='mac-light'] .float-tools button { color: #3a3a3c; }
+[data-theme='mac-light'] .tool.on { color: #fff; }
+[data-theme='mac-light'] .layer { border-bottom-color: transparent; }
+[data-theme='mac-light'] .fs,
+[data-theme='mac-light'] .swatch,
+[data-theme='mac-light'] .swatch-input { border-color: rgba(0, 0, 0, 0.25); }

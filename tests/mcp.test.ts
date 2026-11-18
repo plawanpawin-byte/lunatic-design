@@ -13,7 +13,7 @@ describe('MCP server', () => {
     const res = await handle(rpc('initialize', { protocolVersion: '2025-03-26', capabilities: {}, clientInfo: { name: 'x', version: '1' } }));
     expect(res.result.protocolVersion).toBe('2025-03-26');
     expect(res.result.capabilities).toEqual({ tools: {} });
-    expect(res.result.serverInfo.name).toBe('lunatic-design');
+    expect(res.result.serverInfo.name).toBe('timeline');
   });
 
   it('does not answer notifications', async () => {
@@ -49,7 +49,7 @@ describe('MCP server', () => {
   });
 
   it('reports a failed call as a tool error the agent can read, not a protocol error', async () => {
-    const handle = createHandler(vi.fn().mockRejectedValue(new Error('Lunatic Design is not running.')));
+    const handle = createHandler(vi.fn().mockRejectedValue(new Error('Timeline is not running.')));
     const res = await handle(rpc('tools/call', { name: 'get_status', arguments: {} }));
     expect(res.error).toBeUndefined();
     expect(res.result.isError).toBe(true);
@@ -64,11 +64,11 @@ describe('MCP server', () => {
     expect((await handle(null)).error.code).toBe(-32600);
   });
 
-  it('looks for the bridge file in the app data folder, or where LUNATIC_MCP_FILE says', () => {
-    expect(discoveryFile()).toMatch(/Lunatic Design[\\/]mcp\.json$/);
-    process.env.LUNATIC_MCP_FILE = '/tmp/custom.json';
+  it('looks for the bridge file in the app data folder, or where TIMELINE_MCP_FILE says', () => {
+    expect(discoveryFile()).toMatch(/Timeline[\\/]mcp\.json$/);
+    process.env.TIMELINE_MCP_FILE = '/tmp/custom.json';
     expect(discoveryFile()).toBe('/tmp/custom.json');
-    delete process.env.LUNATIC_MCP_FILE;
+    delete process.env.TIMELINE_MCP_FILE;
   });
 });
 

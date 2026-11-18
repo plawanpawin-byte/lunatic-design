@@ -130,8 +130,8 @@ export function TopBar({ onHelp }: { onHelp: () => void }) {
 
   return (
     <header className="topbar">
-      <div className="brand" title="lunaticDesign">
-        <img src="./logo.png" alt="lunaticDesign" />
+      <div className="brand" title="Timeline">
+        <img src="./logo.png" alt="Timeline" />
       </div>
       <button className="home-btn" title="Home: start page" aria-label="Home" onClick={openStartPage}>
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" aria-hidden="true">

@@ -4,19 +4,19 @@ const path = require('node:path');
 const { startBridge } = require('./bridge.cjs');
 
 // the user data folder (recent files, agent bridge) is named after the app, in development and when installed
-app.setName('Lunatic Design');
+app.setName('Timeline');
 
 // an agent that starts the server the old way (the app itself, without Node mode) must not open a window; it exits at once
 const AGENT_LAUNCH = process.argv.some((a) => a.endsWith('mcp-server.cjs') || a === '--mcp');
 if (AGENT_LAUNCH && !process.env.ELECTRON_RUN_AS_NODE) app.exit(0);
 
-// `Lunatic Design.exe --mcp` is the MCP server an AI agent starts: no window, no single-instance lock
+// `Timeline.exe --mcp` is the MCP server an AI agent starts: no window, no single-instance lock
 const MCP_MODE = process.argv.includes('--mcp');
 if (MCP_MODE) {
   app.disableHardwareAcceleration();
   require('./mcp-server.cjs').runStdio();
 }
-// `Lunatic Design.exe --install-mcp`: add the MCP server to Claude Code, Codex and Antigravity, then exit
+// `Timeline.exe --install-mcp`: add the MCP server to Claude Code, Codex and Antigravity, then exit
 const INSTALL_MODE = process.argv.includes('--install-mcp');
 let bridge = null;
 
@@ -34,7 +34,7 @@ async function runInstallMcp() {
   const { installMcp } = require('./install-mcp.cjs');
   // the portable build runs from a temporary copy, so an agent config pointing into it would break on the next start
   if (process.env.PORTABLE_EXECUTABLE_FILE) {
-    const text = 'Lunatic Design: the portable build cannot be connected to agents. Install with lunaticDesign-Setup and run this again.\n';
+    const text = 'Timeline: the portable build cannot be connected to agents. Install with Timeline-Setup and run this again.\n';
     process.stdout.write(text);
     await fs.writeFile(path.join(app.getPath('userData'), 'install-mcp.log'), text, 'utf8').catch(() => {});
     app.exit(1);
@@ -43,9 +43,9 @@ async function runInstallMcp() {
   const entry = mcpEntry();
   const report = await installMcp({ home: app.getPath('home'), entry });
   const lines = [
-    'Lunatic Design: connecting AI agents',
+    'Timeline: connecting AI agents',
     ...report.map((r) => (r.status === 'written' ? `  ${r.agent}: written to ${r.file}` : r.status === 'skipped' ? `  ${r.agent}: skipped (${r.reason})` : `  ${r.agent}: NOT written (${r.reason}) ${r.file}`)),
-    'Restart Claude Code, Codex or Antigravity, then ask it to use the lunatic-design tools.',
+    'Restart Claude Code, Codex or Antigravity, then ask it to use the timeline tools.',
   ];
   const text = lines.join('\n') + '\n';
   process.stdout.write(text);
@@ -61,8 +61,8 @@ async function runInstallMcp() {
 const DEV_URL = process.env.VITE_DEV_SERVER_URL;
 let win = null;
 
-/** Documents/Lunatic Design: the default place for opening, saving and exporting. Works offline; nothing is fetched. */
-const workFolder = () => path.join(app.getPath('documents'), 'Lunatic Design');
+/** Documents/Timeline: the default place for opening, saving and exporting. Works offline; nothing is fetched. */
+const workFolder = () => path.join(app.getPath('documents'), 'Timeline');
 async function ensureWorkFolder() {
   try {
     await fs.mkdir(workFolder(), { recursive: true });
@@ -78,7 +78,7 @@ function createWindow() {
     minWidth: 960,
     minHeight: 600,
     backgroundColor: '#0d1a1d',
-    title: 'lunaticDesign',
+    title: 'Timeline',
     // The renderer draws its own menu bar; the native one stays (hidden) so its accelerators keep working.
     autoHideMenuBar: process.platform !== 'darwin',
     webPreferences: {
@@ -199,7 +199,7 @@ function buildMenu() {
   Menu.setApplicationMenu(Menu.buildFromTemplate(template));
 }
 
-const FILTERS = [{ name: 'lunaticDesign document', extensions: ['vedit'] }];
+const FILTERS = [{ name: 'Timeline document', extensions: ['vedit'] }];
 const IMAGE_EXTENSIONS = ['png', 'jpg', 'jpeg', 'gif', 'webp', 'bmp', 'avif', 'ico', 'svg'];
 // Open accepts documents and pictures; the first filter is the one shown by default
 const OPEN_FILTERS = [

@@ -29,7 +29,7 @@ function startBridge({ getWindow, userDataDir, workFolder, onFile }) {
   const page = (method, params) => {
     const win = getWindow();
     if (!win || win.isDestroyed()) throw new Error('The editor window is not open.');
-    return win.webContents.executeJavaScript(`window.__lunaticApi ? window.__lunaticApi.call(${JSON.stringify(method)}, ${JSON.stringify(params ?? {})}) : Promise.reject(new Error('The editor is still starting.'))`, true);
+    return win.webContents.executeJavaScript(`window.__timelineApi ? window.__timelineApi.call(${JSON.stringify(method)}, ${JSON.stringify(params ?? {})}) : Promise.reject(new Error('The editor is still starting.'))`, true);
   };
 
   const methods = {
